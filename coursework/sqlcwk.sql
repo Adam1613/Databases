@@ -64,7 +64,8 @@ DO NOT REMOVE THE STATEMENT "CREATE VIEW v20TopSellingArtists AS"
 */
 
 CREATE VIEW v20TopSellingArtists AS
---Remove this line and complete your query for Task 4 here
+SELECT *
+FROM artists;
 
 
 /*
@@ -74,5 +75,6 @@ DO NOT REMOVE THE STATEMENT "CREATE VIEW vTopCustomerEachGenre AS"
 ============================================================================
 */
 CREATE VIEW vTopCustomerEachGenre AS
---Remove this line and complete your query for Task 5 here
+SELECT *
+FROM genres;
 
