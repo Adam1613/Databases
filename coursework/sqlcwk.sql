@@ -51,12 +51,11 @@ DO NOT REMOVE THE STATEMENT "CREATE VIEW vTopAlbumEachGenre AS"
 ============================================================================
 */
 CREATE VIEW vTopAlbumEachGenre(Genre, Album, Artist, Sales) AS
-SELECT g.Name, al.Title, art.Name, i.Quantity AS Sales 
+SELECT g.Name, al.Title, art.Name, SUM(i.Quantity) AS Sales 
 FROM genres g, tracks t, albums al, artists art, invoice_items i
-WHERE al.AlbumId == t.AlbumId AND t.TrackId == i.TrackId AND g.GenreId == t.GenreId
-GROUP BY art.Name, al.Title
-ORDER BY Sales DESC
-;
+WHERE al.AlbumId == t.AlbumId AND t.TrackId == i.TrackId AND g.GenreId == t.GenreId AND art.ArtistId == al.ArtistId
+GROUP BY al.Title, art.Name;
+
 
 
 /*
